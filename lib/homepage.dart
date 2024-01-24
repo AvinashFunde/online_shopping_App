@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:online_shooping_app/ApiFistScreen.dart';
 import 'details.dart';
+import 'onbordindS1.dart';
 
 class ProductModel {
   String image;
@@ -85,43 +87,43 @@ List<ProductModel> products = [
   ),
   ProductModel(
       image: "assets/images/b.png",
-      color: Color(0xFFD2A884),
+      color: Color(0xFF000000),
       name: "Gold Bracelet",
       type: 'jweklary',
       price: "@234"),
   ProductModel(
       image: "assets/images/c.png",
-      color: Color(0xFF989493),
+      color: Color(0xFF000000),
       name: "Silver Earrings",
       type: 'jweklary',
       price: "@234"),
   ProductModel(
       image: "assets/images/d.png",
-      color: Color(0xFFE5B399),
+      color: Color(0xFF000000),
       type: 'jweklary',
       name: "Emerald Ring",
       price: "@234"),
   ProductModel(
       image: "assets/images/e.png",
-      color: Color(0xFFE5B399),
+      color: Color(0xFF000000),
       type: 'jweklary',
       name: "Pearl Necklace",
       price: "@234"),
   ProductModel(
       image: "assets/images/f.png",
-      color: Color(0xFFADADAD),
+      color: Color(0xFF000000),
       type: 'jweklary',
       name: "Ruby Brooch",
       price: "@234"),
   ProductModel(
       image: "assets/images/g.png",
-      color: Color(0xFF3B82AB),
+      color: Color(0xFF000000),
       type: 'jweklary',
       name: "Sapphire Pendant",
       price: "@234"),
   ProductModel(
       image: "assets/images/h.png",
-      color: Color(0xFFD2A884),
+      color: Color(0xFF000000),
       type: 'jweklary',
       name: "Rose Gold Anklet",
       price: "@234"),
@@ -138,7 +140,6 @@ List<ProductModel> products = [
       color: Color(0xFFD2A884),
       type: 'shoe',
       name: "FlexFit Runner  ",
-
       price: "@500"),
   ProductModel(
       image: "assets/images/sc.png",
@@ -146,22 +147,20 @@ List<ProductModel> products = [
       color: Color(0xFFD2A884),
       type: 'shoe',
       name: "Urban Trekker",
-
       price: "@500"),
   ProductModel(
       image: "assets/images/sd.png",
       //yaha se start shooes
-      color: Color(0xFFD2A884),
+      color: Color(0xFF000000),
       type: 'shoe',
       name: "Skywalk Comfort",
       price: "@500"),
   ProductModel(
       image: "assets/images/se.png",
       //yaha se start shooes
-      color: Color(0xFFD2A884),
+      color: Color(0xFF000000),
       type: 'shoe',
       name: "Zen Sole Sneaker ",
-
       price: "@500"),
   ProductModel(
       image: "assets/images/sf.png",
@@ -169,7 +168,6 @@ List<ProductModel> products = [
       color: Color(0xFFD2A884),
       type: 'shoe',
       name: "Vogue Walkers ",
-
       price: "@500"),
   ProductModel(
       image: "assets/images/sg.png",
@@ -177,16 +175,13 @@ List<ProductModel> products = [
       color: Color(0xFFD2A884),
       type: 'shoe',
       name: "Gravity Defyer",
-
       price: "@500"),
   ProductModel(
       image: "assets/images/sh.png",
-
-      color: Color(0xFFD2A884),
+      color: Color(0xFF000000),
       type: 'shoe',
       name: "Elite Glide Pro",
       price: "@500"),
-
 ];
 
 class _MyHomePageState extends State<MyHomePage>
@@ -204,11 +199,12 @@ class _MyHomePageState extends State<MyHomePage>
     super.initState();
     handBags = products.where((element) => element.type == 'handBag').toList();
     jweklary = products.where((element) => element.type == 'jweklary').toList();
-    footware= products.where((element) => element.type == 'shoe').toList();
+    footware = products.where((element) => element.type == 'shoe').toList();
     tabController = TabController(length: 4, vsync: this);
   }
 
   Color g = Colors.grey;
+  bool isSearching = false;
 
   @override
   Widget build(BuildContext context) {
@@ -233,19 +229,17 @@ class _MyHomePageState extends State<MyHomePage>
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.white,
-          leading: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.arrow_back,
-                color: g,
-              ),
-              color: g),
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Onbord1()));
+                  });
+                },
                 icon: Icon(
                   Icons.search_rounded,
                   color: g,
@@ -256,6 +250,17 @@ class _MyHomePageState extends State<MyHomePage>
                 onPressed: () {},
                 icon: Icon(
                   Icons.shopping_cart_outlined,
+                  color: g,
+                  size: 30,
+                ),
+                color: g),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ApiFScreen()));
+                },
+                icon: Icon(
+                  Icons.api,
                   color: g,
                   size: 30,
                 ),
@@ -274,6 +279,7 @@ class _MyHomePageState extends State<MyHomePage>
             tabs: [
               Tab(
                 text: "Hand bag",
+
               ),
               Tab(
                 text: "Jewellary",
@@ -285,6 +291,33 @@ class _MyHomePageState extends State<MyHomePage>
                 text: "Dresses",
               ),
             ],
+          ),
+        ),
+        drawer: SafeArea(
+          child: Drawer(
+            surfaceTintColor: Colors.pink,
+           // shape: RoundedRectangleBorder(
+             // borderRadius: BorderRadius.only(
+                 // topRight: Radius.circular(50),
+                //  bottomRight: Radius.circular(50)),
+            //),
+            child: ListView(
+              children: [
+                DrawerHeader(padding: EdgeInsetsGeometry.infinity,
+                    decoration: BoxDecoration(
+                  color: Colors.cyan
+                ),
+                    child: UserAccountsDrawerHeader(
+                        currentAccountPictureSize: Size.fromRadius(30),
+                     accountName: Text("Avinash funde"),
+                     accountEmail: Text("avi3.3215@gmail.com"),
+                      currentAccountPicture: CircleAvatar(
+                        child: Text("A"),
+                      ),
+
+                ))
+              ],
+            ),
           ),
         ),
         body: Padding(
@@ -303,13 +336,15 @@ class _MyHomePageState extends State<MyHomePage>
                   itemBuilder: (BuildContext, index) {
                     return GestureDetector(
                       onTap: () {
-                        // Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailsPage(
-                        //     handbags[index],
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailsPage(handBags[index])));
                         // ))
                         // );
                         // Navigator.push(context, route)
-                        Navigator.of(context)
-                            .push(myHomePage(DetailsPage(products[index])));
+                        // Navigator.of(context).push(myHomePage(DetailsPage(handBags[index])));
                       },
                       child: Column(
                         // mainAxisAlignment: MainAxisAlignment.start,
@@ -405,7 +440,7 @@ class _MyHomePageState extends State<MyHomePage>
                       crossAxisSpacing: 15.0, // Spacing between columns
                       mainAxisSpacing: 10.0,
                       childAspectRatio: 9 / 12 // Spacing between rows
-                  ),
+                      ),
                   itemBuilder: (BuildContext, index) {
                     return GestureDetector(
                       onTap: () {
@@ -427,9 +462,9 @@ class _MyHomePageState extends State<MyHomePage>
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                                 child: Image.asset(
-                                  footware[index].image,
-                                  fit: BoxFit.cover,
-                                )),
+                              footware[index].image,
+                              fit: BoxFit.cover,
+                            )),
                           ),
                           SizedBox(
                             height: 10,
@@ -450,10 +485,10 @@ class _MyHomePageState extends State<MyHomePage>
                       ),
                     );
                   }),
-
-
             ],
           ),
-        ));
+        ),
+
+    );
   }
 }

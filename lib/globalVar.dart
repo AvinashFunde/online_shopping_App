@@ -23,5 +23,7 @@ class GlobalVariable {
     cartList.add(product);
   }
 
+
+
 // Other methods or functionalities can be added as needed
 }

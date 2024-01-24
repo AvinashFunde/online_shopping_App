@@ -21,7 +21,7 @@ class DetailsPage extends StatefulWidget {
 class _DetailsPageState extends State<DetailsPage> {
   GlobalVariable gvar =GlobalVariable();
   int num = 0;
-
+//var size=MediaQuery.of(context).size;
   void subtnum() {
     setState(() {
       if (num > 0) {
@@ -66,7 +66,9 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+
+            },
             icon: Icon(
               Icons.search_rounded,
               size: 30,
@@ -205,15 +207,29 @@ class _DetailsPageState extends State<DetailsPage> {
                         padding: const EdgeInsets.only(top: 34, bottom: 35),
                         child: Row(
                           children: [
-                            ElevatedButton(
-                              onPressed: subtnum,
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.white,
-                                  side: BorderSide(color: Colors.black),
-                                  fixedSize: Size(.0, 40.0)),
-                              child: Icon(
-                                Icons.remove,
-                                color: Colors.black,
+                            // ElevatedButton(
+                            //   onPressed: subtnum,
+                            //   style: ElevatedButton.styleFrom(
+                            //       backgroundColor: Colors.white,
+                            //       side: BorderSide(color: Colors.black),
+                            //       fixedSize: Size(.0, 40.0)),
+                            //   child: Icon(
+                            //     Icons.remove,
+                            //     color: Colors.black,
+                            //   ),
+                            // ),
+                            InkWell(
+                              onTap: (){
+                                subtnum();
+                              },
+                              child: Container(
+                                height: MediaQuery.of(context).size.height*0.03,
+                                width: MediaQuery.of(context).size.width*0.1,
+                               decoration: BoxDecoration(
+                                 color: Colors.white,
+                                 border: Border.all(color: Colors.black)
+                               ),
+                                child: Icon(Icons.remove),
                               ),
                             ),
                             Padding(
@@ -221,25 +237,30 @@ class _DetailsPageState extends State<DetailsPage> {
                                   const EdgeInsets.symmetric(horizontal: 10),
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 20),
-                                // height: MediaQuery.of(context).size.height*0.03,
-                                //   width: MediaQuery.of(context).size.width*0.065,
+                                height: MediaQuery.of(context).size.height*0.03,
+                                width: MediaQuery.of(context).size.width*0.1,
                                 decoration: BoxDecoration(
-                                  // color: Colors.cyan,
+
                                   border: Border.all(color: Colors.black),
                                 ),
-                                child: Text('$num',
-                                    style: TextStyle(fontSize: 30)),
+                                child: Center(
+                                  child: Text('$num',
+                                      style: TextStyle(fontSize: 20,color: Colors.black)),
+                                ),
                               ),
                             ),
-                            ElevatedButton(
-                              onPressed: addnum,
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.white,
-                                  side: BorderSide(color: Colors.black),
-                                  fixedSize: Size(.0, 40.0)),
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.black,
+                            InkWell(
+                              onTap: (){
+                                addnum();
+                              },
+                              child: Container(
+                                height: MediaQuery.of(context).size.height*0.03,
+                                width: MediaQuery.of(context).size.width*0.1,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(color: Colors.black)
+                                ),
+                                child: Icon(Icons.add),
                               ),
                             ),
                             SizedBox(
@@ -251,25 +272,6 @@ class _DetailsPageState extends State<DetailsPage> {
                               size: 35,
                             ),
 
-                            //  Container(
-                            //   // height: MediaQuery.of(context).size.height*0.03,
-                            // //   width: MediaQuery.of(context).size.width*0.065,
-                            //    decoration: BoxDecoration(
-                            //     // color: Colors.cyan,
-                            //      border:Border.all(color: Colors.black),
-                            //    ),
-                            //   child: Center(
-                            //     child: IconButton(
-                            //         splashColor: Colors.red,
-                            //       onPressed: (){
-                            //           subtnum();
-                            //       },
-                            //       icon :Icon(CupertinoIcons.minus)
-                            //     ),
-                            //   ),
-                            //
-                            //
-                            //  ),
                           ],
                         ),
                       ),
