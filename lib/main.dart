@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:online_shooping_app/screens/onbordindS1.dart';
 
-import 'homepage.dart';
-import 'onbordindS1.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -21,13 +21,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      // theme: ThemeData(
-      //   backgroundColor: Colors.white,
-      //
-      //  // primarySwatch: Colors.blue,
-      // ),
 
-      home: Onbord1(),
+
+      home: OnbordOne(),
     );
   }
 }

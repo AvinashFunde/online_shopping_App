@@ -237,7 +237,7 @@ class _MyHomePageState extends State<MyHomePage>
             IconButton(
                 onPressed: () {
                   setState(() {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Onbord1()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>OnbordOne()));
                   });
                 },
                 icon: Icon(

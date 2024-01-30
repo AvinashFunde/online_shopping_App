@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_shooping_app/homepage.dart';
+import 'homepage.dart';
 
 import 'onbordingS2.dart';
 

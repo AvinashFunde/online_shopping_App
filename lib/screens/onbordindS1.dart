@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'onbordingS2.dart';
 
-class Onbord1 extends StatefulWidget {
-  const Onbord1({super.key});
+class OnbordOne extends StatefulWidget {
+  const OnbordOne({super.key});
 
   @override
-  State<Onbord1> createState() => _Onbord1State();
+  State<OnbordOne> createState() => _OnbordOneState();
 }
 
-class _Onbord1State extends State<Onbord1> {
+class _OnbordOneState extends State<OnbordOne> {
   Color cr = Color(0xFFFAADB3);
   @override
   Widget build(BuildContext context) {

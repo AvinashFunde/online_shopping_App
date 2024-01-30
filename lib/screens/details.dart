@@ -4,9 +4,9 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:online_shooping_app/addToCart.dart';
-import 'package:online_shooping_app/globalVar.dart';
-import 'package:online_shooping_app/homepage.dart';
+
+import 'globalVar.dart';
+import 'homepage.dart';
 import 'package:animate_do/animate_do.dart';
 
 class DetailsPage extends StatefulWidget {
